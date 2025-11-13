@@ -46,19 +46,11 @@
             gap: 15px;
         }
         
-        .logo-svg {
-            width: 50px;
-            height: 50px;
-            background: #6495ED;
+        .logo-img {
+            width: 60px;
+            height: 60px;
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 14px;
-            text-align: center;
-            padding: 5px;
+            object-fit: contain;
         }
         
         .logo-text h1 {
@@ -239,6 +231,11 @@
                 margin-bottom: 1rem;
             }
             
+            .logo-img {
+                width: 50px;
+                height: 50px;
+            }
+            
             .botoes-whatsapp {
                 flex-direction: column;
                 align-items: center;
@@ -255,9 +252,7 @@
     <header class="header">
         <div class="container">
             <div class="logo-container">
-                <div class="logo-svg">
-                    CLIMA AR
-                </div>
+                <img src="https://i.ibb.co/sd03NWqP/image.png" alt="Clima Ar Logo" class="logo-img">
                 <div class="logo-text">
                     <h1>Clima Ar</h1>
                     <p>Instalação Profissional</p>
