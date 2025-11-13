@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalação de Ar Condicionado</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .nav {
+            background: #34495e;
+            padding: 1rem;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('background.jpg');
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .btn-orcamento {
+            background: #e74c3c;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        
+        .servicos {
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .servico-item {
+            margin: 1rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Nome da Empresa</h1>
+        <p>Especialistas em Instalação de Ar Condicionado</p>
+    </header>
+    
+    <nav class="nav">
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Quem Somos</a>
+        <a href="#contato">Contato</a>
+    </nav>
+    
+    <section class="hero" id="inicio">
+        <h2>Instalação Profissional de Ar Condicionado</h2>
+        <p>Mais de X anos de experiência em instalações residenciais e comerciais</p>
+        <button class="btn-orcamento" onclick="solicitarOrcamento()">
+            Solicitar Orçamento
+        </button>
+    </section>
+    
+    <section class="servicos" id="servicos">
+        <h2>Nossos Serviços</h2>
+        <div class="servico-item">
+            <h3>Instalação Residencial</h3>
+            <p>Instalação profissional para sua casa</p>
+        </div>
+        <div class="servico-item">
+            <h3>Instalação Comercial</h3>
+            <p>Soluções para empresas e comércios</p>
+        </div>
+    </section>
+    
+    <script>
+        function solicitarOrcamento() {
+            // Aqui você pode abrir um formulário ou redirecionar
+            alert('Em breve: Formulário de orçamento!');
+        }
+    </script>
+</body>
+</html>
