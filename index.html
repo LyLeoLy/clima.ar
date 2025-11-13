@@ -57,7 +57,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('images/hero-bg.jpg');
+                        #3498db;
             background-size: cover;
             background-position: center;
             color: white;
@@ -91,6 +91,12 @@
         .servicos {
             padding: 4rem 2rem;
             text-align: center;
+            background: #f8f9fa;
+        }
+        
+        .servicos h2 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
         }
         
         .servicos-grid {
@@ -104,11 +110,43 @@
             padding: 2rem;
             border: 1px solid #ddd;
             border-radius: 8px;
+            background: white;
             transition: transform 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
         .servico-item:hover {
             transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .servico-item h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        /* Contato */
+        .contato {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .contato-info {
+            margin-top: 2rem;
+        }
+        
+        .contato-item {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
         }
         
         /* Responsivo */
@@ -119,6 +157,15 @@
             
             .hero h2 {
                 font-size: 2rem;
+            }
+            
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
             }
         }
     </style>
@@ -153,23 +200,45 @@
         <div class="servicos-grid">
             <div class="servico-item">
                 <h3>🏠 Instalação Residencial</h3>
-                <p>Instalação profissional para apartamentos, casas e condomínios</p>
+                <p>Instalação profissional para apartamentos, casas e condomínios. Garantia de qualidade e segurança.</p>
             </div>
             <div class="servico-item">
                 <h3>🏢 Instalação Comercial</h3>
-                <p>Soluções para lojas, escritórios e estabelecimentos comerciais</p>
+                <p>Soluções para lojas, escritórios e estabelecimentos comerciais. Atendimento especializado.</p>
             </div>
             <div class="servico-item">
                 <h3>⚡ Sistemas Split</h3>
-                <p>Instalação de sistemas split wall, inverter e multi-split</p>
+                <p>Instalação de sistemas split wall, inverter e multi-split. Técnicos certificados.</p>
             </div>
         </div>
     </section>
 
+    <section class="contato" id="contato">
+        <h2>Entre em Contato</h2>
+        <p>Estamos prontos para atender sua necessidade</p>
+        
+        <div class="contato-info">
+            <div class="contato-item">
+                <strong>📞 WhatsApp:</strong> (11) 99999-9999
+            </div>
+            <div class="contato-item">
+                <strong>📧 E-mail:</strong> contato@climapro.com.br
+            </div>
+            <div class="contato-item">
+                <strong>🕒 Horário de Atendimento:</strong> Seg-Sex: 8h-18h | Sáb: 8h-12h
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 ClimaPro Install - Todos os direitos reservados</p>
+        <p>Especialistas em instalação de ar condicionado</p>
+    </footer>
+
     <script>
         function solicitarOrcamento() {
-            // Redireciona para WhatsApp
-            const phone = "5511999999999"; // Substitua pelo número correto
+            // Redireciona para WhatsApp - SUBSTITUA O NÚMERO!
+            const phone = "5511999999999";
             const message = "Olá! Gostaria de solicitar um orçamento para instalação de ar condicionado.";
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
         }
