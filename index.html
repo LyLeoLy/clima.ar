@@ -47,10 +47,10 @@
         }
         
         .logo-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 8px;
+            width: 80px;
+            height: 80px;
             object-fit: contain;
+            filter: brightness(0) invert(1); /* Torna a logo branca */
         }
         
         .logo-text h1 {
@@ -232,8 +232,8 @@
             }
             
             .logo-img {
-                width: 50px;
-                height: 50px;
+                width: 70px;
+                height: 70px;
             }
             
             .botoes-whatsapp {
@@ -246,13 +246,24 @@
                 max-width: 300px;
             }
         }
+
+        @media (max-width: 480px) {
+            .logo-img {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.3rem;
+            }
+        }
     </style>
 </head>
 <body>
     <header class="header">
         <div class="container">
             <div class="logo-container">
-                <img src="https://i.ibb.co/sd03NWqP/image.png" alt="Clima Ar Logo" class="logo-img">
+                <img src="https://i.ibb.co/xS8nCF0y/Gemini-Generated-Image-im2jcwim2jcwim2j.png" alt="Clima Ar Logo" class="logo-img">
                 <div class="logo-text">
                     <h1>Clima Ar</h1>
                     <p>Instalação Profissional</p>
