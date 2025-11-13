@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instalação Profissional de Ar Condicionado</title>
+    <title>Clima Ar - Instalação Profissional de Ar Condicionado</title>
     <meta name="description" content="Especialistas em instalação de ar condicionado residencial e comercial. Serviço profissional e garantido.">
     <style>
         /* Reset básico */
@@ -81,10 +81,40 @@
             cursor: pointer;
             margin-top: 1rem;
             transition: background 0.3s;
+            display: block;
+            width: 300px;
+            margin: 1rem auto;
         }
         
         .btn-orcamento:hover {
             background: #c0392b;
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin: 0.5rem;
+            transition: background 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            width: 280px;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #128C7E;
+        }
+        
+        .botoes-whatsapp {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
         }
         
         /* Serviços */
@@ -167,6 +197,16 @@
             .logo {
                 margin-bottom: 1rem;
             }
+            
+            .botoes-whatsapp {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-whatsapp {
+                width: 100%;
+                max-width: 300px;
+            }
         }
     </style>
 </head>
@@ -174,7 +214,7 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <h1>ClimaPro Install</h1>
+                <h1>Clima Ar</h1>
             </div>
             <nav class="nav">
                 <a href="#inicio">Início</a>
@@ -187,10 +227,22 @@
 
     <section class="hero" id="inicio">
         <h2>Instalação Profissional de Ar Condicionado</h2>
-        <p>Mais de 15 anos de experiência em instalações residenciais e comerciais</p>
-        <button class="btn-orcamento" onclick="solicitarOrcamento()">
+        <p>Especialistas em instalações residenciais e comerciais com qualidade e garantia</p>
+        
+        <button class="btn-orcamento" onclick="mostrarOpcoesWhatsApp()">
             📞 Solicitar Orçamento Gratuito
         </button>
+        
+        <div class="botoes-whatsapp" id="botoesWhatsApp" style="display: none;">
+            <a href="https://wa.me/5511942392575?text=Olá, gostaria de fazer um orçamento com vocês" 
+               class="btn-whatsapp" target="_blank">
+               💬 WhatsApp Leonardo
+            </a>
+            <a href="https://wa.me/5511999235352?text=Olá, gostaria de fazer um orçamento com vocês" 
+               class="btn-whatsapp" target="_blank">
+               💬 WhatsApp Evandro
+            </a>
+        </div>
     </section>
 
     <section class="servicos" id="servicos">
@@ -200,15 +252,15 @@
         <div class="servicos-grid">
             <div class="servico-item">
                 <h3>🏠 Instalação Residencial</h3>
-                <p>Instalação profissional para apartamentos, casas e condomínios. Garantia de qualidade e segurança.</p>
+                <p>Instalação profissional para apartamentos, casas e condomínios. Garantia de qualidade e segurança em cada projeto.</p>
             </div>
             <div class="servico-item">
                 <h3>🏢 Instalação Comercial</h3>
-                <p>Soluções para lojas, escritórios e estabelecimentos comerciais. Atendimento especializado.</p>
+                <p>Soluções completas para lojas, escritórios e estabelecimentos comerciais. Atendimento especializado para empresas.</p>
             </div>
             <div class="servico-item">
                 <h3>⚡ Sistemas Split</h3>
-                <p>Instalação de sistemas split wall, inverter e multi-split. Técnicos certificados.</p>
+                <p>Instalação de sistemas split wall, inverter e multi-split. Técnicos certificados e equipamentos de qualidade.</p>
             </div>
         </div>
     </section>
@@ -219,28 +271,33 @@
         
         <div class="contato-info">
             <div class="contato-item">
-                <strong>📞 WhatsApp:</strong> (11) 99999-9999
+                <strong>📞 WhatsApp Leonardo:</strong> (11) 94239-2575
             </div>
             <div class="contato-item">
-                <strong>📧 E-mail:</strong> contato@climapro.com.br
+                <strong>📞 WhatsApp Evandro:</strong> (11) 99923-5352
             </div>
             <div class="contato-item">
-                <strong>🕒 Horário de Atendimento:</strong> Seg-Sex: 8h-18h | Sáb: 8h-12h
+                <strong>📧 E-mail:</strong> evandroduteiro@gmail.com
+            </div>
+            <div class="contato-item">
+                <strong>🕒 Horário de Atendimento:</strong> Segunda a Sexta: 8h-18h | Sábado: 8h-12h
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        <p>&copy; 2024 ClimaPro Install - Todos os direitos reservados</p>
+        <p>&copy; 2024 Clima Ar - Todos os direitos reservados</p>
         <p>Especialistas em instalação de ar condicionado</p>
     </footer>
 
     <script>
-        function solicitarOrcamento() {
-            // Redireciona para WhatsApp - SUBSTITUA O NÚMERO!
-            const phone = "5511999999999";
-            const message = "Olá! Gostaria de solicitar um orçamento para instalação de ar condicionado.";
-            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+        function mostrarOpcoesWhatsApp() {
+            const botoes = document.getElementById('botoesWhatsApp');
+            if (botoes.style.display === 'none') {
+                botoes.style.display = 'flex';
+            } else {
+                botoes.style.display = 'none';
+            }
         }
         
         // Smooth scroll para links internos
