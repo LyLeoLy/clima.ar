@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instalação de Ar Condicionado</title>
+    <title>Instalação Profissional de Ar Condicionado</title>
+    <meta name="description" content="Especialistas em instalação de ar condicionado residencial e comercial. Serviço profissional e garantido.">
     <style>
+        /* Reset básico */
         * {
             margin: 0;
             padding: 0;
@@ -12,35 +14,61 @@
         }
         
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
+            color: #333;
         }
         
+        /* Header */
         .header {
             background: #2c3e50;
             color: white;
-            padding: 1rem;
-            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
         
-        .nav {
-            background: #34495e;
-            padding: 1rem;
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
         }
         
         .nav a {
             color: white;
             text-decoration: none;
-            margin: 0 1rem;
+            margin-left: 2rem;
+            transition: color 0.3s;
         }
         
+        .nav a:hover {
+            color: #3498db;
+        }
+        
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('background.jpg');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('images/hero-bg.jpg');
             background-size: cover;
+            background-position: center;
             color: white;
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 8rem 2rem 4rem;
+            margin-top: 60px;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
         
         .btn-orcamento {
@@ -52,59 +80,113 @@
             font-size: 1.1rem;
             cursor: pointer;
             margin-top: 1rem;
+            transition: background 0.3s;
         }
         
+        .btn-orcamento:hover {
+            background: #c0392b;
+        }
+        
+        /* Serviços */
         .servicos {
-            padding: 2rem;
+            padding: 4rem 2rem;
             text-align: center;
         }
         
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
         .servico-item {
-            margin: 1rem;
-            padding: 1rem;
+            padding: 2rem;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .servico-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1>Nome da Empresa</h1>
-        <p>Especialistas em Instalação de Ar Condicionado</p>
+        <div class="container">
+            <div class="logo">
+                <h1>ClimaPro Install</h1>
+            </div>
+            <nav class="nav">
+                <a href="#inicio">Início</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#sobre">Quem Somos</a>
+                <a href="#contato">Contato</a>
+            </nav>
+        </div>
     </header>
-    
-    <nav class="nav">
-        <a href="#inicio">Início</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#sobre">Quem Somos</a>
-        <a href="#contato">Contato</a>
-    </nav>
-    
+
     <section class="hero" id="inicio">
         <h2>Instalação Profissional de Ar Condicionado</h2>
-        <p>Mais de X anos de experiência em instalações residenciais e comerciais</p>
+        <p>Mais de 15 anos de experiência em instalações residenciais e comerciais</p>
         <button class="btn-orcamento" onclick="solicitarOrcamento()">
-            Solicitar Orçamento
+            📞 Solicitar Orçamento Gratuito
         </button>
     </section>
-    
+
     <section class="servicos" id="servicos">
         <h2>Nossos Serviços</h2>
-        <div class="servico-item">
-            <h3>Instalação Residencial</h3>
-            <p>Instalação profissional para sua casa</p>
-        </div>
-        <div class="servico-item">
-            <h3>Instalação Comercial</h3>
-            <p>Soluções para empresas e comércios</p>
+        <p>Especialistas em instalação de todos os tipos de ar condicionado</p>
+        
+        <div class="servicos-grid">
+            <div class="servico-item">
+                <h3>🏠 Instalação Residencial</h3>
+                <p>Instalação profissional para apartamentos, casas e condomínios</p>
+            </div>
+            <div class="servico-item">
+                <h3>🏢 Instalação Comercial</h3>
+                <p>Soluções para lojas, escritórios e estabelecimentos comerciais</p>
+            </div>
+            <div class="servico-item">
+                <h3>⚡ Sistemas Split</h3>
+                <p>Instalação de sistemas split wall, inverter e multi-split</p>
+            </div>
         </div>
     </section>
-    
+
     <script>
         function solicitarOrcamento() {
-            // Aqui você pode abrir um formulário ou redirecionar
-            alert('Em breve: Formulário de orçamento!');
+            // Redireciona para WhatsApp
+            const phone = "5511999999999"; // Substitua pelo número correto
+            const message = "Olá! Gostaria de solicitar um orçamento para instalação de ar condicionado.";
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
         }
+        
+        // Smooth scroll para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
