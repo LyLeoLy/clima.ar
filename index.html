@@ -160,6 +160,27 @@
             background: #6495ED;
         }
         
+        .btn-formulario {
+            background: #FFFFFF;
+            color: #000080;
+            padding: 1rem 2rem;
+            border: 2px solid #000080;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin: 0.5rem;
+            transition: all 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            width: 280px;
+            font-weight: bold;
+        }
+        
+        .btn-formulario:hover {
+            background: #000080;
+            color: white;
+        }
+        
         .btn-whatsapp {
             background: #25D366;
             color: white;
@@ -179,7 +200,7 @@
             background: #128C7E;
         }
         
-        .botoes-whatsapp {
+        .botoes-orcamento {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -312,12 +333,12 @@
                 font-size: 1.6rem;
             }
             
-            .botoes-whatsapp {
+            .botoes-orcamento {
                 flex-direction: column;
                 align-items: center;
             }
             
-            .btn-whatsapp {
+            .btn-formulario, .btn-whatsapp {
                 width: 100%;
                 max-width: 300px;
             }
@@ -367,7 +388,7 @@
         </div>
     </header>
 
-    <!-- Nova Seção Quem Somos -->
+    <!-- Seção Quem Somos -->
     <section class="quem-somos" id="quem-somos">
         <div class="quem-somos-container">
             <img src="https://i.ibb.co/zLn621T/ar-condicionado-split-4.jpg" alt="Instalação de ar condicionado" class="quem-somos-img">
@@ -382,11 +403,15 @@
         <h2>Instalação Profissional de Ar Condicionado</h2>
         <p>Especialistas em instalações residenciais e comerciais com qualidade e garantia</p>
         
-        <button class="btn-orcamento" onclick="mostrarOpcoesWhatsApp()">
+        <button class="btn-orcamento" onclick="mostrarOpcoesOrcamento()">
             📞 Solicitar Orçamento Gratuito
         </button>
         
-        <div class="botoes-whatsapp" id="botoesWhatsApp" style="display: none;">
+        <div class="botoes-orcamento" id="botoesOrcamento" style="display: none;">
+            <a href="https://script.google.com/macros/s/AKfycbxl5-aX1WRI0VIXAludvuBgLiJ2dRsG9JIj2LiUhANbf3nBqj8xJZRJBKNncf8cF_EWLA/exec" 
+               class="btn-formulario" target="_blank">
+               📝 Formulário de Orçamento
+            </a>
             <a href="https://wa.me/5511942392575?text=Olá, gostaria de fazer um orçamento com vocês" 
                class="btn-whatsapp" target="_blank">
                💬 WhatsApp Leonardo
@@ -444,8 +469,8 @@
     </footer>
 
     <script>
-        function mostrarOpcoesWhatsApp() {
-            const botoes = document.getElementById('botoesWhatsApp');
+        function mostrarOpcoesOrcamento() {
+            const botoes = document.getElementById('botoesOrcamento');
             if (botoes.style.display === 'none') {
                 botoes.style.display = 'flex';
             } else {
