@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clima Ar - Instalação Profissional de Ar Condicionado</title>
     <meta name="description" content="Especialistas em instalação de ar condicionado residencial e comercial. Serviço profissional e garantido.">
+    <!-- Font Awesome para ícones profissionais -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Reset básico */
         * {
@@ -208,6 +210,10 @@
             margin-top: 2rem;
         }
         
+        .icon-btn {
+            margin-right: 8px;
+        }
+        
         /* Serviços */
         .servicos {
             padding: 4rem 2rem;
@@ -244,6 +250,15 @@
         .servico-item h3 {
             color: #000080;
             margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .servico-icon {
+            font-size: 2rem;
+            color: #000080;
         }
         
         /* Contato */
@@ -265,10 +280,20 @@
             margin: 1rem 0;
             font-size: 1.1rem;
             color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         
         .contato-item strong {
             color: #000080;
+        }
+        
+        .contato-icon {
+            color: #000080;
+            width: 20px;
+            text-align: center;
         }
         
         /* Footer */
@@ -342,6 +367,17 @@
                 width: 100%;
                 max-width: 300px;
             }
+            
+            .servico-item h3 {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .contato-item {
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -365,6 +401,10 @@
             
             .hero {
                 padding: 3rem 1rem;
+            }
+            
+            .servico-icon {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -404,21 +444,21 @@
         <p>Especialistas em instalações residenciais e comerciais com qualidade e garantia</p>
         
         <button class="btn-orcamento" onclick="mostrarOpcoesOrcamento()">
-            📞 Solicitar Orçamento Gratuito
+            <i class="fas fa-calculator icon-btn"></i>Solicitar Orçamento Gratuito
         </button>
         
         <div class="botoes-orcamento" id="botoesOrcamento" style="display: none;">
             <a href="https://script.google.com/macros/s/AKfycbxl5-aX1WRI0VIXAludvuBgLiJ2dRsG9JIj2LiUhANbf3nBqj8xJZRJBKNncf8cF_EWLA/exec" 
                class="btn-formulario" target="_blank">
-               📝 Formulário de Orçamento
+               <i class="fas fa-file-alt icon-btn"></i>Formulário de Orçamento
             </a>
             <a href="https://wa.me/5511942392575?text=Olá, gostaria de fazer um orçamento com vocês" 
                class="btn-whatsapp" target="_blank">
-               💬 WhatsApp Leonardo
+               <i class="fab fa-whatsapp icon-btn"></i>WhatsApp Leonardo
             </a>
             <a href="https://wa.me/5511999235352?text=Olá, gostaria de fazer um orçamento com vocês" 
                class="btn-whatsapp" target="_blank">
-               💬 WhatsApp Evandro
+               <i class="fab fa-whatsapp icon-btn"></i>WhatsApp Evandro
             </a>
         </div>
     </section>
@@ -429,15 +469,24 @@
         
         <div class="servicos-grid">
             <div class="servico-item">
-                <h3>🏠 Instalação Residencial</h3>
+                <h3>
+                    <i class="fas fa-home servico-icon"></i>
+                    Instalação Residencial
+                </h3>
                 <p>Instalação profissional para apartamentos, casas e condomínios. Garantia de qualidade e segurança em cada projeto.</p>
             </div>
             <div class="servico-item">
-                <h3>🏢 Instalação Comercial</h3>
+                <h3>
+                    <i class="fas fa-building servico-icon"></i>
+                    Instalação Comercial
+                </h3>
                 <p>Soluções completas para lojas, escritórios e estabelecimentos comerciais. Atendimento especializado para empresas.</p>
             </div>
             <div class="servico-item">
-                <h3>⚡ Sistemas Split</h3>
+                <h3>
+                    <i class="fas fa-bolt servico-icon"></i>
+                    Sistemas Split
+                </h3>
                 <p>Instalação de sistemas split wall, inverter e multi-split. Técnicos certificados e equipamentos de qualidade.</p>
             </div>
         </div>
@@ -449,16 +498,28 @@
         
         <div class="contato-info">
             <div class="contato-item">
-                <strong>📞 WhatsApp Leonardo:</strong> (11) 94239-2575
+                <i class="fab fa-whatsapp contato-icon"></i>
+                <div>
+                    <strong>WhatsApp Leonardo:</strong> (11) 94239-2575
+                </div>
             </div>
             <div class="contato-item">
-                <strong>📞 WhatsApp Evandro:</strong> (11) 99923-5352
+                <i class="fab fa-whatsapp contato-icon"></i>
+                <div>
+                    <strong>WhatsApp Evandro:</strong> (11) 99923-5352
+                </div>
             </div>
             <div class="contato-item">
-                <strong>📧 E-mail:</strong> evandroduteiro@gmail.com
+                <i class="fas fa-envelope contato-icon"></i>
+                <div>
+                    <strong>E-mail:</strong> evandroduteiro@gmail.com
+                </div>
             </div>
             <div class="contato-item">
-                <strong>🕒 Horário de Atendimento:</strong> Segunda a Sexta: 8h-18h | Sábado: 8h-12h
+                <i class="fas fa-clock contato-icon"></i>
+                <div>
+                    <strong>Horário de Atendimento:</strong> Segunda a Sexta: 8h-18h | Sábado: 8h-12h
+                </div>
             </div>
         </div>
     </section>
