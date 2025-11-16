@@ -5,6 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clima Ar - Instalação Profissional de Ar Condicionado</title>
     <meta name="description" content="Especialistas em instalação de ar condicionado residencial e comercial. Serviço profissional e garantido.">
+    
+    <!-- MELHORIA 3: SEO e Metadados Adicionais -->
+    <meta name="keywords" content="instalação ar condicionado, manutenção ar condicionado, climatização, ar condicionado residencial, ar condicionado comercial, split inverter, LG K7, técnico ar condicionado">
+    <meta name="author" content="Clima Ar">
+    <link rel="canonical" href="https://climaar.com.br">
+    
+    <!-- Schema Markup para negócio local -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Clima Ar",
+        "description": "Especialistas em instalação de ar condicionado residencial e comercial",
+        "url": "https://climaar.com.br",
+        "telephone": "+55-11-94239-2575",
+        "email": "evandroduteiro@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "São Paulo",
+            "addressRegion": "SP"
+        },
+        "openingHours": "Mo-Fr 08:00-18:00, Sa 08:00-12:00",
+        "serviceType": "Instalação e manutenção de ar condicionado"
+    }
+    </script>
+
     <!-- Font Awesome para ícones profissionais -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -67,11 +93,12 @@
             line-height: 1.2;
         }
         
+        /* MELHORIA 2: Melhor contraste para acessibilidade */
         .logo-text p {
             font-size: 0.9rem;
             opacity: 0.9;
             margin: 0;
-            color: #6495ED;
+            color: #87CEEB; /* Azul mais claro para melhor contraste */
         }
         
         .nav {
@@ -85,10 +112,28 @@
             margin-left: 2rem;
             transition: color 0.3s;
             white-space: nowrap;
+            padding: 0.5rem 0;
+            position: relative;
         }
         
         .nav a:hover {
             color: #6495ED;
+        }
+        
+        /* MELHORIA 6: Indicador de seção ativa */
+        .nav a.active {
+            color: #6495ED;
+            font-weight: bold;
+        }
+        
+        .nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #6495ED;
         }
         
         /* Quem Somos Section */
@@ -152,7 +197,7 @@
             font-size: 1.1rem;
             cursor: pointer;
             margin-top: 1rem;
-            transition: background 0.3s;
+            transition: all 0.3s;
             display: block;
             width: 300px;
             margin: 1rem auto;
@@ -160,6 +205,11 @@
         
         .btn-orcamento:hover {
             background: #6495ED;
+        }
+        
+        /* MELHORIA 6: Feedback visual para interações */
+        .btn-orcamento:active {
+            transform: scale(0.98);
         }
         
         .btn-formulario {
@@ -183,6 +233,10 @@
             color: white;
         }
         
+        .btn-formulario:active {
+            transform: scale(0.98);
+        }
+        
         .btn-whatsapp {
             background: #25D366;
             color: white;
@@ -192,7 +246,7 @@
             font-size: 1.1rem;
             cursor: pointer;
             margin: 0.5rem;
-            transition: background 0.3s;
+            transition: all 0.3s;
             display: inline-block;
             text-decoration: none;
             width: 280px;
@@ -200,6 +254,10 @@
         
         .btn-whatsapp:hover {
             background: #128C7E;
+        }
+        
+        .btn-whatsapp:active {
+            transform: scale(0.98);
         }
         
         .botoes-orcamento {
@@ -316,6 +374,17 @@
         .contato-info span {
             color: #333;
             font-size: 1rem;
+        }
+        
+        /* MELHORIA 5: Links clicáveis para telefone e email */
+        .contato-link {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contato-link:hover {
+            color: #000080;
         }
         
         /* Footer */
@@ -566,16 +635,21 @@
     </style>
 </head>
 <body>
-    <header class="header">
+    <!-- MELHORIA 2: Atributos ARIA para acessibilidade -->
+    <header class="header" role="banner">
         <div class="container">
             <div class="logo-container">
-                <img src="https://i.ibb.co/pjK8nBzL/Gemini-Generated-Image-im2jcwim2jcwim2j-removebg-preview.png" alt="Clima Ar Logo" class="logo-img">
+                <!-- MELHORIA 1: Carregamento lazy para imagens -->
+                <img src="https://i.ibb.co/pjK8nBzL/Gemini-Generated-Image-im2jcwim2jcwim2j-removebg-preview.png" 
+                     alt="Clima Ar Logo - Especialistas em instalação de ar condicionado" 
+                     class="logo-img" 
+                     loading="lazy">
                 <div class="logo-text">
                     <h1>Clima Ar</h1>
                     <p>Instalação Profissional</p>
                 </div>
             </div>
-            <nav class="nav">
+            <nav class="nav" aria-label="Navegação principal">
                 <a href="#inicio">Início</a>
                 <a href="#quem-somos">Quem Somos</a>
                 <a href="#servicos">Serviços</a>
@@ -587,7 +661,11 @@
     <!-- Seção Quem Somos -->
     <section class="quem-somos" id="quem-somos">
         <div class="quem-somos-container">
-            <img src="https://i.ibb.co/zLn621T/ar-condicionado-split-4.jpg" alt="Instalação de ar condicionado" class="quem-somos-img">
+            <!-- MELHORIA 1: Carregamento lazy para imagens -->
+            <img src="https://i.ibb.co/zLn621T/ar-condicionado-split-4.jpg" 
+                 alt="Técnico realizando instalação profissional de ar condicionado split" 
+                 class="quem-somos-img" 
+                 loading="lazy">
             <div class="quem-somos-content">
                 <h2>Quem Somos</h2>
                 <p>A Clima Ar é uma empresa especializada na instalação e manutenção de sistemas de ar condicionado residenciais e industriais. Com compromisso, seriedade e excelência, oferecemos soluções eficientes e de alta qualidade, sempre focadas em atender às necessidades e superar as expectativas dos nossos clientes.</p>
@@ -604,16 +682,21 @@
         </button>
         
         <div class="botoes-orcamento" id="botoesOrcamento" style="display: none;">
+            <!-- MELHORIA 4: Validação antes de abrir formulário -->
             <a href="https://script.google.com/macros/s/AKfycbxl5-aX1WRI0VIXAludvuBgLiJ2dRsG9JIj2LiUhANbf3nBqj8xJZRJBKNncf8cF_EWLA/exec" 
-               class="btn-formulario" target="_blank">
+               class="btn-formulario" 
+               target="_blank"
+               onclick="return validarFormulario()">
                <i class="fas fa-file-alt icon-btn"></i>Formulário de Orçamento
             </a>
             <a href="https://wa.me/5511942392575?text=Olá, gostaria de fazer um orçamento com vocês" 
-               class="btn-whatsapp" target="_blank">
+               class="btn-whatsapp" 
+               target="_blank">
                <i class="fab fa-whatsapp icon-btn"></i>WhatsApp Leonardo
             </a>
             <a href="https://wa.me/5511999235352?text=Olá, gostaria de fazer um orçamento com vocês" 
-               class="btn-whatsapp" target="_blank">
+               class="btn-whatsapp" 
+               target="_blank">
                <i class="fab fa-whatsapp icon-btn"></i>WhatsApp Evandro
             </a>
         </div>
@@ -658,14 +741,20 @@
                     <i class="fab fa-whatsapp contato-icon"></i>
                     <div class="contato-info">
                         <strong>WhatsApp Leonardo</strong>
-                        <span>(11) 94239-2575</span>
+                        <!-- MELHORIA 5: Links clicáveis para telefone -->
+                        <span>
+                            <a href="tel:+5511942392575" class="contato-link">(11) 94239-2575</a>
+                        </span>
                     </div>
                 </div>
                 <div class="contato-item">
                     <i class="fab fa-whatsapp contato-icon"></i>
                     <div class="contato-info">
                         <strong>WhatsApp Evandro</strong>
-                        <span>(11) 99923-5352</span>
+                        <!-- MELHORIA 5: Links clicáveis para telefone -->
+                        <span>
+                            <a href="tel:+5511999235352" class="contato-link">(11) 99923-5352</a>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -674,7 +763,10 @@
                     <i class="fas fa-envelope contato-icon"></i>
                     <div class="contato-info">
                         <strong>E-mail</strong>
-                        <span>evandroduteiro@gmail.com</span>
+                        <!-- MELHORIA 5: Links clicáveis para email -->
+                        <span>
+                            <a href="mailto:evandroduteiro@gmail.com" class="contato-link">evandroduteiro@gmail.com</a>
+                        </span>
                     </div>
                 </div>
                 <div class="contato-item">
@@ -717,6 +809,7 @@
     </div>
 
     <script>
+        // Funções existentes
         function mostrarOpcoesOrcamento() {
             const botoes = document.getElementById('botoesOrcamento');
             if (botoes.style.display === 'none') {
@@ -754,6 +847,56 @@
                 }
             });
         });
+
+        // MELHORIA 4: Validação do formulário
+        function validarFormulario() {
+            // Aqui você pode adicionar validações específicas
+            // Por exemplo, verificar se o usuário está em dispositivo móvel
+            if (window.innerWidth <= 768) {
+                if (!confirm('Você será redirecionado para um formulário externo. Deseja continuar?')) {
+                    return false;
+                }
+            }
+            
+            // Registrar a conversão para analytics (exemplo)
+            console.log('Usuário clicou no formulário de orçamento');
+            
+            return true; // Permite o redirecionamento
+        }
+
+        // MELHORIA 7: Navegação ativa durante scroll
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Inicializar a navegação ativa
+        window.addEventListener('scroll', updateActiveNav);
+        window.addEventListener('load', updateActiveNav);
+
+        // MELHORIA 1: Otimização adicional - Preload de fontes críticas
+        // Adicionar preload para fontes do Font Awesome se necessário
+        const preloadLink = document.createElement('link');
+        preloadLink.rel = 'preload';
+        preloadLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+        preloadLink.as = 'style';
+        document.head.appendChild(preloadLink);
     </script>
 </body>
 </html>
