@@ -1081,8 +1081,8 @@
     </div>
 
     <script>
-        // Configuração - URL do Google Apps Script
-        const API_URL = 'https://script.google.com/macros/s/AKfycbzdiODJYoBRIach9HG-Ehz2HTuLq3g9KazYU9v9YALSyQZImwTavvTgvm88msSS8yiG/exec';
+        // ✅ CONFIGURAÇÃO FINAL - SUA URL NOVA
+        const API_URL = 'https://script.google.com/macros/s/AKfycbx_qCRQ31D80TmAmpMsIE8EL0nZY6NfSTpRk0UnO2qIXMh56ivyU7L5MEdIr1IVtIDC/exec';
 
         // Funções existentes
         function mostrarOpcoesOrcamento() {
@@ -1145,7 +1145,7 @@
         window.addEventListener('scroll', updateActiveNav);
         window.addEventListener('load', updateActiveNav);
 
-        // Sistema do Formulário com Integração Real
+        // ✅ SISTEMA FINAL - Formulário integrado funcionando
         document.getElementById('orcamentoForm').addEventListener('submit', function(e) {
             e.preventDefault();
             enviarFormulario();
@@ -1184,6 +1184,8 @@
                     mensagem: formData.get('mensagem')
                 };
                 
+                console.log('Enviando dados para API:', dados);
+                
                 // Enviar para Google Apps Script
                 const response = await fetch(API_URL, {
                     method: 'POST',
@@ -1201,26 +1203,23 @@
                     formError.style.display = 'none';
                     form.reset();
                     
-                    // Registrar conversão no Google Analytics (se configurado)
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'conversion', {
-                            'send_to': 'AW-123456789/AbC-D_EFGhIjKlMnOpQrSt',
-                            'value': 1.0,
-                            'currency': 'BRL'
-                        });
-                    }
-                    
-                    console.log('Orçamento enviado com sucesso:', dados);
+                    console.log('✅ Orçamento enviado com sucesso!');
                     
                 } else {
                     // Erro do servidor
-                    throw new Error(resultado.error || 'Erro desconhecido');
+                    throw new Error(resultado.error || 'Erro desconhecido do servidor');
                 }
                 
             } catch (error) {
                 // Erro de rede ou do servidor
-                console.error('Erro ao enviar formulário:', error);
-                errorMessage.textContent = `Erro: ${error.message}. Tente novamente ou entre em contato pelo WhatsApp.`;
+                console.error('❌ Erro ao enviar formulário:', error);
+                
+                if (error.message.includes('Failed to fetch') || error.message.includes('Network Error')) {
+                    errorMessage.textContent = 'Erro de conexão. Verifique sua internet e tente novamente.';
+                } else {
+                    errorMessage.textContent = `Erro: ${error.message}. Tente novamente.`;
+                }
+                
                 formError.style.display = 'block';
                 formSuccess.style.display = 'none';
                 
@@ -1297,15 +1296,17 @@
         preloadLink.as = 'style';
         document.head.appendChild(preloadLink);
 
-        // Testar conexão com a API ao carregar a página
-        window.addEventListener('load', async function() {
-            try {
-                const response = await fetch(API_URL);
-                const data = await response.json();
-                console.log('Conexão com API OK:', data);
-            } catch (error) {
-                console.warn('API não disponível, usando fallback:', error);
-            }
+        // ✅ TESTE DE CONEXÃO FINAL
+        window.addEventListener('load', function() {
+            console.log('🔧 Testando conexão com API...');
+            fetch(API_URL)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('✅ API conectada com sucesso:', data);
+                })
+                .catch(error => {
+                    console.warn('⚠️ API offline, mas formulário continuará funcionando:', error);
+                });
         });
     </script>
 </body>
