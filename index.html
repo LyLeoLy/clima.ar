@@ -269,7 +269,7 @@
             margin-right: 8px;
         }
         
-        /* NOVO: Seção do Formulário Integrado */
+        /* Seção do Formulário Integrado */
         .formulario-section {
             padding: 4rem 2rem;
             background: white;
@@ -408,6 +408,21 @@
         
         .form-fallback a:hover {
             text-decoration: underline;
+        }
+        
+        .whatsapp-success {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        
+        .whatsapp-success:hover {
+            background: #128C7E;
         }
         
         /* Serviços */
@@ -845,17 +860,38 @@
         </div>
     </section>
 
-    <!-- NOVA SEÇÃO: Formulário Integrado -->
+    <!-- Seção do Formulário Integrado -->
     <section class="formulario-section" id="formulario-orcamento">
         <div class="formulario-container">
             <h2><i class="fas fa-file-alt icon-btn"></i>Solicitar Orçamento</h2>
             
             <div class="form-success" id="formSuccess">
-                <i class="fas fa-check-circle"></i> Orçamento solicitado com sucesso! Entraremos em contato em até 24h.
+                <i class="fas fa-check-circle"></i> 
+                <h3>Orçamento solicitado com sucesso!</h3>
+                <p>Entraremos em contato em até 24 horas.</p>
+                <p>
+                    <strong>Prefere contato imediato?</strong><br>
+                    <a href="https://wa.me/5511942392575?text=Olá, acabei de enviar um orçamento pelo site" 
+                       class="whatsapp-success" target="_blank">
+                       <i class="fab fa-whatsapp"></i> Falar com Leonardo agora
+                    </a>
+                </p>
             </div>
             
             <div class="form-error" id="formError">
-                <i class="fas fa-exclamation-triangle"></i> Erro ao enviar o formulário. Tente novamente ou entre em contato pelo WhatsApp.
+                <i class="fas fa-exclamation-triangle"></i> 
+                <h3>Erro ao enviar o formulário</h3>
+                <p id="errorMessage">Tente novamente ou entre em contato pelo WhatsApp.</p>
+                <div class="botoes-orcamento">
+                    <a href="https://wa.me/5511942392575?text=Olá, gostaria de fazer um orçamento com vocês" 
+                       class="btn-whatsapp" target="_blank">
+                       <i class="fab fa-whatsapp icon-btn"></i>WhatsApp Leonardo
+                    </a>
+                    <a href="https://wa.me/5511999235352?text=Olá, gostaria de fazer um orçamento com vocês" 
+                       class="btn-whatsapp" target="_blank">
+                       <i class="fab fa-whatsapp icon-btn"></i>WhatsApp Evandro
+                    </a>
+                </div>
             </div>
             
             <form id="orcamentoForm">
@@ -1045,6 +1081,9 @@
     </div>
 
     <script>
+        // Configuração - URL do Google Apps Script
+        const API_URL = 'https://script.google.com/macros/s/AKfycbzdiODJYoBRIach9HG-Ehz2HTuLq3g9KazYU9v9YALSyQZImwTavvTgvm88msSS8yiG/exec';
+
         // Funções existentes
         function mostrarOpcoesOrcamento() {
             const botoes = document.getElementById('botoesOrcamento');
@@ -1061,7 +1100,6 @@
             options.classList.toggle('active');
         }
         
-        // Fechar o widget quando clicar fora
         document.addEventListener('click', function(event) {
             const widget = document.querySelector('.whatsapp-widget');
             const options = document.getElementById('whatsappOptions');
@@ -1070,7 +1108,6 @@
             }
         });
         
-        // Smooth scroll para links internos
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1084,7 +1121,6 @@
             });
         });
 
-        // Navegação ativa durante scroll
         function updateActiveNav() {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav a');
@@ -1109,17 +1145,18 @@
         window.addEventListener('scroll', updateActiveNav);
         window.addEventListener('load', updateActiveNav);
 
-        // NOVO: Sistema do Formulário Integrado
+        // Sistema do Formulário com Integração Real
         document.getElementById('orcamentoForm').addEventListener('submit', function(e) {
             e.preventDefault();
             enviarFormulario();
         });
 
-        function enviarFormulario() {
+        async function enviarFormulario() {
             const form = document.getElementById('orcamentoForm');
             const btnEnviar = document.getElementById('btnEnviar');
             const formSuccess = document.getElementById('formSuccess');
             const formError = document.getElementById('formError');
+            const errorMessage = document.getElementById('errorMessage');
             
             // Validar formulário
             if (!validarFormulario()) {
@@ -1129,72 +1166,116 @@
             // Mostrar loading
             btnEnviar.disabled = true;
             btnEnviar.classList.add('loading');
+            formSuccess.style.display = 'none';
+            formError.style.display = 'none';
             
-            // Coletar dados do formulário
-            const formData = new FormData(form);
-            const dados = Object.fromEntries(formData);
-            
-            // Simular envio (substituir por API real)
-            setTimeout(() => {
-                // Aqui você integraria com:
-                // 1. EmailJS
-                // 2. Google Apps Script
-                // 3. API própria
-                // 4. Webhook do Zapier
+            try {
+                // Coletar dados do formulário
+                const formData = new FormData(form);
+                const dados = {
+                    nome: formData.get('nome'),
+                    telefone: formData.get('telefone'),
+                    email: formData.get('email'),
+                    tipoServico: formData.get('tipo-servico'),
+                    tipoAparelho: formData.get('tipo-aparelho'),
+                    quantidade: formData.get('quantidade'),
+                    urgencia: formData.get('urgencia'),
+                    endereco: formData.get('endereco'),
+                    mensagem: formData.get('mensagem')
+                };
                 
-                const sucesso = Math.random() > 0.2; // Simulação - 80% de sucesso
+                // Enviar para Google Apps Script
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(dados)
+                });
                 
-                if (sucesso) {
+                const resultado = await response.json();
+                
+                if (resultado.success) {
                     // Sucesso
                     formSuccess.style.display = 'block';
                     formError.style.display = 'none';
                     form.reset();
                     
-                    // Registrar no Google Analytics
+                    // Registrar conversão no Google Analytics (se configurado)
                     if (typeof gtag !== 'undefined') {
-                        gtag('event', 'form_submission', {
-                            'event_category': 'orcamento',
-                            'event_label': 'formulario_integrado'
+                        gtag('event', 'conversion', {
+                            'send_to': 'AW-123456789/AbC-D_EFGhIjKlMnOpQrSt',
+                            'value': 1.0,
+                            'currency': 'BRL'
                         });
                     }
+                    
+                    console.log('Orçamento enviado com sucesso:', dados);
+                    
                 } else {
-                    // Erro
-                    formError.style.display = 'block';
-                    formSuccess.style.display = 'none';
+                    // Erro do servidor
+                    throw new Error(resultado.error || 'Erro desconhecido');
                 }
                 
+            } catch (error) {
+                // Erro de rede ou do servidor
+                console.error('Erro ao enviar formulário:', error);
+                errorMessage.textContent = `Erro: ${error.message}. Tente novamente ou entre em contato pelo WhatsApp.`;
+                formError.style.display = 'block';
+                formSuccess.style.display = 'none';
+                
+            } finally {
                 // Restaurar botão
                 btnEnviar.disabled = false;
                 btnEnviar.classList.remove('loading');
                 
                 // Scroll para feedback
-                formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                
-            }, 2000); // Simular delay de rede
+                const feedbackElement = formSuccess.style.display === 'block' ? formSuccess : formError;
+                feedbackElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
         }
 
         function validarFormulario() {
             const nome = document.getElementById('nome').value.trim();
             const telefone = document.getElementById('telefone').value.trim();
             const tipoServico = document.getElementById('tipo-servico').value;
+            const email = document.getElementById('email').value.trim();
             
-            // Validações básicas
+            // Limpar erros anteriores
+            document.querySelectorAll('.form-error').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Validações
+            const erros = [];
+            
             if (nome.length < 2) {
-                alert('Por favor, digite seu nome completo');
-                return false;
+                erros.push('Por favor, digite seu nome completo');
             }
             
-            if (telefone.length < 10) {
-                alert('Por favor, digite um telefone válido');
-                return false;
+            if (telefone.replace(/\D/g, '').length < 10) {
+                erros.push('Por favor, digite um telefone válido com DDD');
             }
             
             if (!tipoServico) {
-                alert('Por favor, selecione o tipo de serviço');
+                erros.push('Por favor, selecione o tipo de serviço');
+            }
+            
+            if (email && !validarEmail(email)) {
+                erros.push('Por favor, digite um e-mail válido');
+            }
+            
+            if (erros.length > 0) {
+                alert('Por favor, corrija os seguintes erros:\n\n' + erros.join('\n'));
                 return false;
             }
             
             return true;
+        }
+
+        function validarEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
         }
 
         // Máscara para telefone
@@ -1215,6 +1296,17 @@
         preloadLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
         preloadLink.as = 'style';
         document.head.appendChild(preloadLink);
+
+        // Testar conexão com a API ao carregar a página
+        window.addEventListener('load', async function() {
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+                console.log('Conexão com API OK:', data);
+            } catch (error) {
+                console.warn('API não disponível, usando fallback:', error);
+            }
+        });
     </script>
 </body>
 </html>
