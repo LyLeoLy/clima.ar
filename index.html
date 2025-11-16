@@ -6,7 +6,7 @@
     <title>Clima Ar - Instalação Profissional de Ar Condicionado</title>
     <meta name="description" content="Especialistas em instalação de ar condicionado residencial e comercial. Serviço profissional e garantido.">
     
-    <!-- MELHORIA 3: SEO e Metadados Adicionais -->
+    <!-- SEO e Metadados Adicionais -->
     <meta name="keywords" content="instalação ar condicionado, manutenção ar condicionado, climatização, ar condicionado residencial, ar condicionado comercial, split inverter, LG K7, técnico ar condicionado">
     <meta name="author" content="Clima Ar">
     <link rel="canonical" href="https://climaar.com.br">
@@ -93,12 +93,11 @@
             line-height: 1.2;
         }
         
-        /* MELHORIA 2: Melhor contraste para acessibilidade */
         .logo-text p {
             font-size: 0.9rem;
             opacity: 0.9;
             margin: 0;
-            color: #87CEEB; /* Azul mais claro para melhor contraste */
+            color: #87CEEB;
         }
         
         .nav {
@@ -120,7 +119,6 @@
             color: #6495ED;
         }
         
-        /* MELHORIA 6: Indicador de seção ativa */
         .nav a.active {
             color: #6495ED;
             font-weight: bold;
@@ -207,7 +205,6 @@
             background: #6495ED;
         }
         
-        /* MELHORIA 6: Feedback visual para interações */
         .btn-orcamento:active {
             transform: scale(0.98);
         }
@@ -270,6 +267,147 @@
         
         .icon-btn {
             margin-right: 8px;
+        }
+        
+        /* NOVO: Seção do Formulário Integrado */
+        .formulario-section {
+            padding: 4rem 2rem;
+            background: white;
+        }
+        
+        .formulario-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #F8F8FF;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .formulario-container h2 {
+            color: #000080;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #000080;
+            font-weight: bold;
+        }
+        
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #6495ED;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #000080;
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .btn-enviar {
+            background: #000080;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .btn-enviar:hover {
+            background: #6495ED;
+        }
+        
+        .btn-enviar:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        .btn-enviar.loading {
+            position: relative;
+            color: transparent;
+        }
+        
+        .btn-enviar.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .form-success {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        
+        .form-error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        
+        .form-fallback {
+            text-align: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+        }
+        
+        .form-fallback a {
+            color: #000080;
+            text-decoration: none;
+        }
+        
+        .form-fallback a:hover {
+            text-decoration: underline;
         }
         
         /* Serviços */
@@ -376,7 +514,6 @@
             font-size: 1rem;
         }
         
-        /* MELHORIA 5: Links clicáveis para telefone e email */
         .contato-link {
             color: inherit;
             text-decoration: none;
@@ -544,6 +681,19 @@
                 max-width: 300px;
             }
             
+            .formulario-section {
+                padding: 3rem 1rem;
+            }
+            
+            .formulario-container {
+                padding: 1.5rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
             .servico-item h3 {
                 flex-direction: column;
                 gap: 5px;
@@ -635,11 +785,9 @@
     </style>
 </head>
 <body>
-    <!-- MELHORIA 2: Atributos ARIA para acessibilidade -->
     <header class="header" role="banner">
         <div class="container">
             <div class="logo-container">
-                <!-- MELHORIA 1: Carregamento lazy para imagens -->
                 <img src="https://i.ibb.co/pjK8nBzL/Gemini-Generated-Image-im2jcwim2jcwim2j-removebg-preview.png" 
                      alt="Clima Ar Logo - Especialistas em instalação de ar condicionado" 
                      class="logo-img" 
@@ -661,7 +809,6 @@
     <!-- Seção Quem Somos -->
     <section class="quem-somos" id="quem-somos">
         <div class="quem-somos-container">
-            <!-- MELHORIA 1: Carregamento lazy para imagens -->
             <img src="https://i.ibb.co/zLn621T/ar-condicionado-split-4.jpg" 
                  alt="Técnico realizando instalação profissional de ar condicionado split" 
                  class="quem-somos-img" 
@@ -682,12 +829,8 @@
         </button>
         
         <div class="botoes-orcamento" id="botoesOrcamento" style="display: none;">
-            <!-- MELHORIA 4: Validação antes de abrir formulário -->
-            <a href="https://script.google.com/macros/s/AKfycbxl5-aX1WRI0VIXAludvuBgLiJ2dRsG9JIj2LiUhANbf3nBqj8xJZRJBKNncf8cF_EWLA/exec" 
-               class="btn-formulario" 
-               target="_blank"
-               onclick="return validarFormulario()">
-               <i class="fas fa-file-alt icon-btn"></i>Formulário de Orçamento
+            <a href="#formulario-orcamento" class="btn-formulario">
+                <i class="fas fa-file-alt icon-btn"></i>Formulário de Orçamento
             </a>
             <a href="https://wa.me/5511942392575?text=Olá, gostaria de fazer um orçamento com vocês" 
                class="btn-whatsapp" 
@@ -699,6 +842,102 @@
                target="_blank">
                <i class="fab fa-whatsapp icon-btn"></i>WhatsApp Evandro
             </a>
+        </div>
+    </section>
+
+    <!-- NOVA SEÇÃO: Formulário Integrado -->
+    <section class="formulario-section" id="formulario-orcamento">
+        <div class="formulario-container">
+            <h2><i class="fas fa-file-alt icon-btn"></i>Solicitar Orçamento</h2>
+            
+            <div class="form-success" id="formSuccess">
+                <i class="fas fa-check-circle"></i> Orçamento solicitado com sucesso! Entraremos em contato em até 24h.
+            </div>
+            
+            <div class="form-error" id="formError">
+                <i class="fas fa-exclamation-triangle"></i> Erro ao enviar o formulário. Tente novamente ou entre em contato pelo WhatsApp.
+            </div>
+            
+            <form id="orcamentoForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="nome">Nome Completo *</label>
+                        <input type="text" id="nome" name="nome" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="telefone">Telefone/WhatsApp *</label>
+                        <input type="tel" id="telefone" name="telefone" class="form-input" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="email">E-mail</label>
+                    <input type="email" id="email" name="email" class="form-input">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="tipo-servico">Tipo de Serviço *</label>
+                        <select id="tipo-servico" name="tipo-servico" class="form-select" required>
+                            <option value="">Selecione...</option>
+                            <option value="instalacao-residencial">Instalação Residencial</option>
+                            <option value="instalacao-comercial">Instalação Comercial</option>
+                            <option value="manutencao">Manutenção</option>
+                            <option value="limpeza">Limpeza</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="tipo-aparelho">Tipo de Aparelho</label>
+                        <select id="tipo-aparelho" name="tipo-aparelho" class="form-select">
+                            <option value="">Selecione...</option>
+                            <option value="split">Split</option>
+                            <option value="split-inverter">Split Inverter</option>
+                            <option value="janela">Janela</option>
+                            <option value="portatil">Portátil</option>
+                            <option value="multisplit">Multi Split</option>
+                            <option value="nao-sei">Não sei</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="quantidade">Quantidade de Aparelhos</label>
+                        <input type="number" id="quantidade" name="quantidade" class="form-input" min="1" value="1">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="urgencia">Urgência</label>
+                        <select id="urgencia" name="urgencia" class="form-select">
+                            <option value="sem-urgencia">Sem urgência</option>
+                            <option value="1-semana">Esta semana</option>
+                            <option value="proximos-dias">Próximos dias</option>
+                            <option value="urgente">Urgente</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="endereco">Endereço (Opcional)</label>
+                    <input type="text" id="endereco" name="endereco" class="form-input" placeholder="Cidade e bairro">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="mensagem">Detalhes Adicionais</label>
+                    <textarea id="mensagem" name="mensagem" class="form-textarea" placeholder="Descreva brevemente sua necessidade..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn-enviar" id="btnEnviar">
+                    <i class="fas fa-paper-plane icon-btn"></i>Solicitar Orçamento
+                </button>
+            </form>
+            
+            <div class="form-fallback">
+                <p>Problemas com o formulário? <a href="https://script.google.com/macros/s/AKfycbxl5-aX1WRI0VIXAludvuBgLiJ2dRsG9JIj2LiUhANbf3nBqj8xJZRJBKNncf8cF_EWLA/exec" target="_blank">Use nosso formulário alternativo</a></p>
+            </div>
         </div>
     </section>
 
@@ -741,7 +980,6 @@
                     <i class="fab fa-whatsapp contato-icon"></i>
                     <div class="contato-info">
                         <strong>WhatsApp Leonardo</strong>
-                        <!-- MELHORIA 5: Links clicáveis para telefone -->
                         <span>
                             <a href="tel:+5511942392575" class="contato-link">(11) 94239-2575</a>
                         </span>
@@ -751,7 +989,6 @@
                     <i class="fab fa-whatsapp contato-icon"></i>
                     <div class="contato-info">
                         <strong>WhatsApp Evandro</strong>
-                        <!-- MELHORIA 5: Links clicáveis para telefone -->
                         <span>
                             <a href="tel:+5511999235352" class="contato-link">(11) 99923-5352</a>
                         </span>
@@ -763,7 +1000,6 @@
                     <i class="fas fa-envelope contato-icon"></i>
                     <div class="contato-info">
                         <strong>E-mail</strong>
-                        <!-- MELHORIA 5: Links clicáveis para email -->
                         <span>
                             <a href="mailto:evandroduteiro@gmail.com" class="contato-link">evandroduteiro@gmail.com</a>
                         </span>
@@ -848,23 +1084,7 @@
             });
         });
 
-        // MELHORIA 4: Validação do formulário
-        function validarFormulario() {
-            // Aqui você pode adicionar validações específicas
-            // Por exemplo, verificar se o usuário está em dispositivo móvel
-            if (window.innerWidth <= 768) {
-                if (!confirm('Você será redirecionado para um formulário externo. Deseja continuar?')) {
-                    return false;
-                }
-            }
-            
-            // Registrar a conversão para analytics (exemplo)
-            console.log('Usuário clicou no formulário de orçamento');
-            
-            return true; // Permite o redirecionamento
-        }
-
-        // MELHORIA 7: Navegação ativa durante scroll
+        // Navegação ativa durante scroll
         function updateActiveNav() {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav a');
@@ -886,12 +1106,110 @@
             });
         }
 
-        // Inicializar a navegação ativa
         window.addEventListener('scroll', updateActiveNav);
         window.addEventListener('load', updateActiveNav);
 
-        // MELHORIA 1: Otimização adicional - Preload de fontes críticas
-        // Adicionar preload para fontes do Font Awesome se necessário
+        // NOVO: Sistema do Formulário Integrado
+        document.getElementById('orcamentoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            enviarFormulario();
+        });
+
+        function enviarFormulario() {
+            const form = document.getElementById('orcamentoForm');
+            const btnEnviar = document.getElementById('btnEnviar');
+            const formSuccess = document.getElementById('formSuccess');
+            const formError = document.getElementById('formError');
+            
+            // Validar formulário
+            if (!validarFormulario()) {
+                return;
+            }
+            
+            // Mostrar loading
+            btnEnviar.disabled = true;
+            btnEnviar.classList.add('loading');
+            
+            // Coletar dados do formulário
+            const formData = new FormData(form);
+            const dados = Object.fromEntries(formData);
+            
+            // Simular envio (substituir por API real)
+            setTimeout(() => {
+                // Aqui você integraria com:
+                // 1. EmailJS
+                // 2. Google Apps Script
+                // 3. API própria
+                // 4. Webhook do Zapier
+                
+                const sucesso = Math.random() > 0.2; // Simulação - 80% de sucesso
+                
+                if (sucesso) {
+                    // Sucesso
+                    formSuccess.style.display = 'block';
+                    formError.style.display = 'none';
+                    form.reset();
+                    
+                    // Registrar no Google Analytics
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'form_submission', {
+                            'event_category': 'orcamento',
+                            'event_label': 'formulario_integrado'
+                        });
+                    }
+                } else {
+                    // Erro
+                    formError.style.display = 'block';
+                    formSuccess.style.display = 'none';
+                }
+                
+                // Restaurar botão
+                btnEnviar.disabled = false;
+                btnEnviar.classList.remove('loading');
+                
+                // Scroll para feedback
+                formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+            }, 2000); // Simular delay de rede
+        }
+
+        function validarFormulario() {
+            const nome = document.getElementById('nome').value.trim();
+            const telefone = document.getElementById('telefone').value.trim();
+            const tipoServico = document.getElementById('tipo-servico').value;
+            
+            // Validações básicas
+            if (nome.length < 2) {
+                alert('Por favor, digite seu nome completo');
+                return false;
+            }
+            
+            if (telefone.length < 10) {
+                alert('Por favor, digite um telefone válido');
+                return false;
+            }
+            
+            if (!tipoServico) {
+                alert('Por favor, selecione o tipo de serviço');
+                return false;
+            }
+            
+            return true;
+        }
+
+        // Máscara para telefone
+        document.getElementById('telefone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length <= 11) {
+                value = value.replace(/(\d{2})(\d)/, '($1) $2');
+                value = value.replace(/(\d{5})(\d)/, '$1-$2');
+            }
+            
+            e.target.value = value;
+        });
+
+        // Preload de fontes críticas
         const preloadLink = document.createElement('link');
         preloadLink.rel = 'preload';
         preloadLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
