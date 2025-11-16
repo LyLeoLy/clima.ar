@@ -289,7 +289,7 @@
         
         .contato-item {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 12px;
             text-align: left;
         }
@@ -297,18 +297,20 @@
         .contato-icon {
             color: #000080;
             font-size: 1.2rem;
-            margin-top: 2px;
             min-width: 20px;
         }
         
         .contato-info {
             flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
         }
         
         .contato-info strong {
             color: #000080;
-            display: block;
-            margin-bottom: 4px;
+            white-space: nowrap;
         }
         
         .contato-info span {
@@ -402,6 +404,11 @@
                 text-align: center;
                 justify-content: center;
             }
+            
+            .contato-info {
+                justify-content: center;
+                text-align: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -433,6 +440,11 @@
             
             .contato {
                 padding: 3rem 1rem;
+            }
+            
+            .contato-info {
+                flex-direction: column;
+                gap: 4px;
             }
         }
     </style>
@@ -552,8 +564,8 @@
                 <div class="contato-item">
                     <i class="fas fa-clock contato-icon"></i>
                     <div class="contato-info">
-                        <strong>Horário de Atendimento</strong>
-                        <span>Segunda a Sexta: 8h-18h<br>Sábado: 8h-12h</span>
+                        <strong>Horário</strong>
+                        <span>Seg-Sex: 8h-18h | Sáb: 8h-12h</span>
                     </div>
                 </div>
             </div>
