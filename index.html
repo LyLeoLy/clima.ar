@@ -327,6 +327,91 @@
             margin-top: 2rem;
         }
         
+        /* WhatsApp Widget */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+        
+        .whatsapp-button {
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6);
+        }
+        
+        .whatsapp-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .whatsapp-options.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+        
+        .whatsapp-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .whatsapp-option:hover {
+            background: #25D366;
+            color: white;
+            transform: translateX(-5px);
+        }
+        
+        .whatsapp-option i {
+            color: #25D366;
+            font-size: 18px;
+        }
+        
+        .whatsapp-option:hover i {
+            color: white;
+        }
+        
+        .whatsapp-option strong {
+            font-weight: 600;
+        }
+        
         /* Responsivo */
         @media (max-width: 768px) {
             .nav {
@@ -409,6 +494,17 @@
                 justify-content: center;
                 text-align: center;
             }
+            
+            .whatsapp-widget {
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .whatsapp-button {
+                width: 55px;
+                height: 55px;
+                font-size: 22px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -445,6 +541,26 @@
             .contato-info {
                 flex-direction: column;
                 gap: 4px;
+            }
+            
+            .whatsapp-widget {
+                bottom: 10px;
+                right: 10px;
+            }
+            
+            .whatsapp-button {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+            
+            .whatsapp-options {
+                padding: 12px;
+            }
+            
+            .whatsapp-option {
+                padding: 8px 12px;
+                font-size: 14px;
             }
         }
     </style>
@@ -577,6 +693,29 @@
         <p>Especialistas em instalação de ar condicionado</p>
     </footer>
 
+    <!-- WhatsApp Widget -->
+    <div class="whatsapp-widget">
+        <div class="whatsapp-options" id="whatsappOptions">
+            <a href="https://wa.me/5511942392575?text=Olá, gostaria de fazer um orçamento com vocês" class="whatsapp-option" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                <div>
+                    <strong>Leonardo</strong>
+                    <div>(11) 94239-2575</div>
+                </div>
+            </a>
+            <a href="https://wa.me/5511999235352?text=Olá, gostaria de fazer um orçamento com vocês" class="whatsapp-option" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                <div>
+                    <strong>Evandro</strong>
+                    <div>(11) 99923-5352</div>
+                </div>
+            </a>
+        </div>
+        <a href="#" class="whatsapp-button" onclick="toggleWhatsAppOptions(event)">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
     <script>
         function mostrarOpcoesOrcamento() {
             const botoes = document.getElementById('botoesOrcamento');
@@ -586,6 +725,21 @@
                 botoes.style.display = 'none';
             }
         }
+        
+        function toggleWhatsAppOptions(event) {
+            event.preventDefault();
+            const options = document.getElementById('whatsappOptions');
+            options.classList.toggle('active');
+        }
+        
+        // Fechar o widget quando clicar fora
+        document.addEventListener('click', function(event) {
+            const widget = document.querySelector('.whatsapp-widget');
+            const options = document.getElementById('whatsappOptions');
+            if (!widget.contains(event.target)) {
+                options.classList.remove('active');
+            }
+        });
         
         // Smooth scroll para links internos
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
