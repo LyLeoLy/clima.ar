@@ -270,30 +270,50 @@
         
         .contato h2 {
             color: #000080;
+            margin-bottom: 1rem;
         }
         
-        .contato-info {
-            margin-top: 2rem;
+        .contato-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+        
+        .contato-coluna {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
         
         .contato-item {
-            margin: 1rem 0;
-            font-size: 1.1rem;
-            color: #333;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .contato-item strong {
-            color: #000080;
+            align-items: flex-start;
+            gap: 12px;
+            text-align: left;
         }
         
         .contato-icon {
             color: #000080;
-            width: 20px;
-            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 2px;
+            min-width: 20px;
+        }
+        
+        .contato-info {
+            flex: 1;
+        }
+        
+        .contato-info strong {
+            color: #000080;
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .contato-info span {
+            color: #333;
+            font-size: 1rem;
         }
         
         /* Footer */
@@ -373,10 +393,14 @@
                 gap: 5px;
             }
             
+            .contato-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
             .contato-item {
-                flex-direction: column;
-                gap: 5px;
                 text-align: center;
+                justify-content: center;
             }
         }
 
@@ -405,6 +429,10 @@
             
             .servico-icon {
                 font-size: 1.5rem;
+            }
+            
+            .contato {
+                padding: 3rem 1rem;
             }
         }
     </style>
@@ -496,29 +524,37 @@
         <h2>Entre em Contato</h2>
         <p>Estamos prontos para atender sua necessidade</p>
         
-        <div class="contato-info">
-            <div class="contato-item">
-                <i class="fab fa-whatsapp contato-icon"></i>
-                <div>
-                    <strong>WhatsApp Leonardo:</strong> (11) 94239-2575
+        <div class="contato-grid">
+            <div class="contato-coluna">
+                <div class="contato-item">
+                    <i class="fab fa-whatsapp contato-icon"></i>
+                    <div class="contato-info">
+                        <strong>WhatsApp Leonardo</strong>
+                        <span>(11) 94239-2575</span>
+                    </div>
+                </div>
+                <div class="contato-item">
+                    <i class="fab fa-whatsapp contato-icon"></i>
+                    <div class="contato-info">
+                        <strong>WhatsApp Evandro</strong>
+                        <span>(11) 99923-5352</span>
+                    </div>
                 </div>
             </div>
-            <div class="contato-item">
-                <i class="fab fa-whatsapp contato-icon"></i>
-                <div>
-                    <strong>WhatsApp Evandro:</strong> (11) 99923-5352
+            <div class="contato-coluna">
+                <div class="contato-item">
+                    <i class="fas fa-envelope contato-icon"></i>
+                    <div class="contato-info">
+                        <strong>E-mail</strong>
+                        <span>evandroduteiro@gmail.com</span>
+                    </div>
                 </div>
-            </div>
-            <div class="contato-item">
-                <i class="fas fa-envelope contato-icon"></i>
-                <div>
-                    <strong>E-mail:</strong> evandroduteiro@gmail.com
-                </div>
-            </div>
-            <div class="contato-item">
-                <i class="fas fa-clock contato-icon"></i>
-                <div>
-                    <strong>Horário de Atendimento:</strong> Segunda a Sexta: 8h-18h | Sábado: 8h-12h
+                <div class="contato-item">
+                    <i class="fas fa-clock contato-icon"></i>
+                    <div class="contato-info">
+                        <strong>Horário de Atendimento</strong>
+                        <span>Segunda a Sexta: 8h-18h<br>Sábado: 8h-12h</span>
+                    </div>
                 </div>
             </div>
         </div>
